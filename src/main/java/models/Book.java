@@ -67,7 +67,7 @@ public class Book {
     }
 
     @ManyToOne
-    @JoinColumn(name = "borrower_id", nullable = false)
+    @JoinColumn(name = "borrower_id", nullable = true)
     public Borrower getCurrentBorrower() {
         return currentBorrower;
     }
