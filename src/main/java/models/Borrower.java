@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "borrowers")
+@Table(name = "templates/borrowers")
 public class Borrower {
 
     private int id;
