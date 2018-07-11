@@ -36,7 +36,7 @@ public class Borrower {
         this.first_name = first_name;
     }
 
-    @Column(name="first_name")
+    @Column(name="last_name")
     public String getLast_name() {
         return last_name;
     }
@@ -45,7 +45,7 @@ public class Borrower {
         this.last_name = last_name;
     }
 
-    @OneToMany(mappedBy="borrower", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy="currentBorrower", fetch = FetchType.LAZY)
     public Set<Book> getItemsBorrowed() {
         return itemsBorrowed;
     }
