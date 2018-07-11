@@ -8,9 +8,6 @@ public class Library {
     private ArrayList<Borrower> borrowers;
 
     public Library() {
-    }
-
-    public Library() {
         this.books = new ArrayList<Book>();
         this.borrowers = new ArrayList<Borrower>();
     }
