@@ -31,8 +31,6 @@ public class BooksController {
 
         get("/books/new", (req,res) ->{
             HashMap<String, Object> model = new HashMap<>();
-//            List<Book> book = DBHelper.getAll(Book.class);
-//            model.put("books", book);
             model.put("template", "templates/books/create.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
@@ -40,7 +38,6 @@ public class BooksController {
         post("/books", (req, res) ->{
            String title = req.queryParams("title");
            String author = req.queryParams("author");
-
            Book book = new Book(title, author);
            DBHelper.save(book);
            res.redirect("/books");
