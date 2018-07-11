@@ -67,7 +67,22 @@ public class BooksController {
             model.put("book", book);
             model.put("template", "templates/books/edit.vtl");
 
-            return new ModelAndView(model, "template/index.vtl");
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, velocityTemplateEngine);
+
+        post("/books/:id", (req,res) ->{
+            String strId = req.params(":id");
+            Integer intId = Integer.parseInt(strId);
+            Book book = DBHelper.find(intId, Book.class);
+
+            String title = req.queryParams("title");
+            String author = req.queryParams("author");
+
+            book.setTitle(title);
+            book.setAuthor(author);
+            DBHelper.save(book);
+            res.redirect("/books");
+            return null;
         }, velocityTemplateEngine);
 
     }
