@@ -2,13 +2,11 @@ package models;
 
 import java.util.ArrayList;
 
+
 public class Library {
 
     private ArrayList<Book> books;
     private ArrayList<Borrower> borrowers;
-
-    public Library() {
-    }
 
     public Library() {
         this.books = new ArrayList<Book>();
