@@ -29,6 +29,10 @@ public class BooksController {
             List<Book> books = DBHelper.getAll(Book.class);
             model.put("template", "templates/books/index.vtl");
             model.put("books", books);
+<<<<<<< HEAD
+            model.put("template", "templates/books/index.vtl");
+=======
+>>>>>>> 332040c2f15e103187193a56b5347cfd7cbc2b02
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
 

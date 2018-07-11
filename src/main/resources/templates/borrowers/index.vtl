@@ -1,4 +1,4 @@
-<p class="pageHeader"> All Borrowers</p>
+<h1>All Borrowes</h1>
 
 <div>
     <a href="/borrowers/new" class="button center">Add New Borrower</a>
@@ -15,6 +15,9 @@
             <tr>
                 <td>$borrower.getFirstName()</td>
                 <td>$borrower.getLastName()</td>
+                <td><form action="borrowers/$borrower.getId()" method="get">
+                    <input type="submit" value="details" class="button"></form>
+                </td>
             </tr>
             #end
         #end
