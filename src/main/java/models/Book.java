@@ -60,6 +60,8 @@ public class Book {
         this.onLoan = onLoan;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "borrower_id", nullable = false)
     public Borrower getCurrentBorrower() {
         return currentBorrower;
     }
@@ -68,5 +70,5 @@ public class Book {
         this.currentBorrower = currentBorrower;
     }
     
-    /test
+
 }
