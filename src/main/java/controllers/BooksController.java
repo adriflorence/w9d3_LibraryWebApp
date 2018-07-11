@@ -20,6 +20,8 @@ public class BooksController {
       
       VelocityTemplateEngine velocityTemplateEngine = new VelocityTemplateEngine();
 
+        VelocityTemplateEngine velocityTemplateEngine = new VelocityTemplateEngine();
+
         get("/books", (req, res) -> {
             HashMap<String, Object> model = new HashMap<>();
             List<Book> books = DBHelper.getAll(Book.class);
