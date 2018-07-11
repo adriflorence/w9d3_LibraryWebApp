@@ -1,0 +1,32 @@
+<h1>Borrower Details</h1>
+
+<p class="details">
+    <section>
+        #if($borrower)
+            <p>First name: $borrower.getFirstName()</p>
+            <p>Last name: $borrower.getLastName()</p>
+        #end
+    </section>
+    <section>
+        <div class="book_table">
+            <table>
+                <tr>
+                    <th>Book Title</th>
+                    <th>Book Author</th>
+                </tr>
+                #foreach($book in $books)
+                    #if($book.onLoan()) && ($book.getCurrentBorrower().getId() == $borrower.getId())
+                    <tr>
+                        <td>$book.getTitle()</td>
+                        <td>$book.getAuthor()</td>
+                        <td><form action="borrowers/$borrower.getId()" method="post">
+                            <input value="remove" type="text" class="inputBox" name="remove" required="true"/>
+                        </form></td>
+                    </tr>
+                    #end
+                #end
+            </table>
+
+        </div>
+    </section>
+</p>

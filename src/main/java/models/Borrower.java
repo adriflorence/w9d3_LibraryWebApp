@@ -39,6 +39,11 @@ public class Borrower {
         this.firstName = firstName;
     }
 
+    @Column(name="lastName")
+    public String getLastName() {
+        return lastName;
+    }
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
@@ -51,4 +56,5 @@ public class Borrower {
     public void setItemsBorrowed(Set<Book> itemsBorrowed) {
         this.itemsBorrowed = itemsBorrowed;
     }
+
 }

@@ -5,3 +5,24 @@ body {
 h1 {
     font-size: 30px;
 }
+
+table {
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid #B87911;
+    padding: 8px;
+}
+
+tr:nth-child(even){
+    background-color: #F8DFA3;
+}
+
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #EBA33F;
+    color: white;
+}
