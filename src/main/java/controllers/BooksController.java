@@ -17,6 +17,8 @@ public class BooksController {
     }
 
     private void setupEndpoints(){
+      
+      VelocityTemplateEngine velocityTemplateEngine = new VelocityTemplateEngine();
 
         get("/books", (req, res) -> {
             HashMap<String, Object> model = new HashMap<>();
@@ -24,7 +26,7 @@ public class BooksController {
             model.put("templates", "templates/books/index.vtl");
             model.put("books", books);
             return new ModelAndView(model, "templates/layout.vtl");
-        }, new VelocityTemplateEngine());
+        }, velocityTemplateEngine);
 
         get("/books/new", (req,res) ->{
             HashMap<String, Object> model = new HashMap<>();
@@ -32,6 +34,6 @@ public class BooksController {
             model.put("books", book);
             model.put("templates", "templates/books/create.vtl");
             return new ModelAndView(model, "template/layout.vtl");
-        }, new VelocityTemplateEngine());
+        }, velocityTemplateEngine);
     }
 }

@@ -18,6 +18,7 @@ public class MainController {
         staticFileLocation("/public");
 
         BooksController booksController = new BooksController();
+        BorrowersController borrowersController = new BorrowersController();
 
         get("/", (req, res) -> {
             HashMap<String, Object> model = new HashMap<>();
