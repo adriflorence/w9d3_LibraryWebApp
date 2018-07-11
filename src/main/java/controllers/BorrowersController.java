@@ -8,7 +8,6 @@ import spark.template.velocity.VelocityTemplateEngine;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
 
 import static spark.Spark.get;
 import static spark.Spark.post;
@@ -59,7 +58,7 @@ public class BorrowersController {
             HashMap<String, Object> model = new HashMap<>();
             model.put("books", books);
             model.put("borrower", borrower);
-            model.put("template", "templates/borrowers/details.vtl");
+            model.put("template", "templates/borrowers/view.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
 
@@ -79,6 +78,15 @@ public class BorrowersController {
             res.redirect("/borrowers");
             return null;
         });
+
+        // DELETE BOOK FROM BORROWER'S LIST
+//        post("/borrowers/:id", (req, res) -> {
+//            int id = Integer.parseInt(req.params(":id"));
+//            Borrower borrower = DBHelper.find(id, Borrower.class);
+//            borrower.getItemsBorrowed();
+//            res.redirect("/borrowers/:id");
+//            return null;
+//        });
 
 
     }

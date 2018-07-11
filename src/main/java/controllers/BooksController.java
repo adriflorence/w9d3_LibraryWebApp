@@ -21,7 +21,7 @@ public class BooksController {
     }
 
     private void setupEndpoints(){
-      
+
       VelocityTemplateEngine velocityTemplateEngine = new VelocityTemplateEngine();
 
         get("/books", (req, res) -> {
@@ -85,12 +85,5 @@ public class BooksController {
             return null;
         }, velocityTemplateEngine);
 
-        post ("/books/:id/delete", (req, res) -> {
-            int id = Integer.parseInt(req.params(":id"));
-            Book bookToDelete = DBHelper.find(id, Book.class);
-            DBHelper.delete(bookToDelete);
-            res.redirect("/books");
-            return null;
-        }, new VelocityTemplateEngine());
     }
 }
