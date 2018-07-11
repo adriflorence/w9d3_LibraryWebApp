@@ -79,6 +79,15 @@ public class BorrowersController {
             return null;
         });
 
+        // DELETE BORROWER FROM DB
+        post("/borrowers/:id/delete", (req, res) -> {
+            int id = Integer.parseInt(req.params(":id"));
+            Borrower borrowerToDelete = DBHelper.find(id, Borrower.class);
+            DBHelper.delete(borrowerToDelete);
+            res.redirect("/borrowers");
+            return null;
+        });
+
         // DELETE BOOK FROM BORROWER'S LIST
 //        post("/borrowers/:id", (req, res) -> {
 //            int id = Integer.parseInt(req.params(":id"));

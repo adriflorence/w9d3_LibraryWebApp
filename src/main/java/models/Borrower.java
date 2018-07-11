@@ -48,7 +48,7 @@ public class Borrower {
         this.lastName = lastName;
     }
 
-    @OneToMany(mappedBy="currentBorrower", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="currentBorrower", fetch = FetchType.LAZY)
     public Set<Book> getItemsBorrowed() {
         return itemsBorrowed;
     }

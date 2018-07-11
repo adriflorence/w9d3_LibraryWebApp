@@ -4,6 +4,7 @@ import com.sun.org.apache.xpath.internal.operations.Mod;
 import com.sun.tools.internal.xjc.model.Model;
 import db.DBHelper;
 import models.Book;
+import models.Genre;
 import org.dom4j.rule.Mode;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -41,7 +42,9 @@ public class BooksController {
         post("/books", (req, res) ->{
            String title = req.queryParams("title");
            String author = req.queryParams("author");
-           Book book = new Book(title, author);
+           String genreString = req.queryParams("genre");
+           Genre genre = Genre.valueOf(genreString); // finds Genre enum based on its value
+           Book book = new Book(title, author, genre);
            DBHelper.save(book);
            res.redirect("/books");
            return null;

@@ -15,12 +15,12 @@
                     <th>Book Author</th>
                 </tr>
                 #foreach($book in $books)
-                    #if($book.onLoan()) && ($book.getCurrentBorrower().getId() == $borrower.getId())
+                    #if($book.getCurrentBorrower().getId() == $borrower.getId())
                     <tr>
                         <td>$book.getTitle()</td>
                         <td>$book.getAuthor()</td>
                         <td><form action="borrowers/$borrower.getId()" method="post">
-                            <input value="remove" type="text" class="inputBox" name="remove" required="true"/>
+                            <input type="button" class="inputBox" name="remove" required="true"/>
                         </form></td>
                     </tr>
                     #end
@@ -28,5 +28,9 @@
             </table>
 
         </div>
+
+        <form action = "/borrowers/$borrower.getId()/delete" method = "post">
+            <input type="submit" value="Delete">
+        </form>
     </section>
 </p>

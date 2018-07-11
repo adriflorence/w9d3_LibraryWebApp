@@ -10,6 +10,7 @@
     <tr>
         <th>Title</th>
         <th>Author</th>
+        <th>Genre</th>
         <th>On Loan</th>
         <th>Loaned By</th>
     </tr>
@@ -17,6 +18,7 @@
     <tr>
         <td>$book.getTitle()</td>
         <td>$book.getAuthor()</td>
+        <td>$book.getGenre().getGenreType()</td>
         <td>$book.getOnLoan()</td>
         #if($book.getOnLoan())
         <td>$book.getCurrentBorrower().getFirstName()</td>

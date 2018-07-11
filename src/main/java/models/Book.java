@@ -9,15 +9,17 @@ public class Book {
     private int id;
     private String title;
     private String author;
+    private Genre genre;
     private Boolean onLoan;
     private Borrower currentBorrower;
 
     public Book() {
     }
 
-    public Book(String title, String author) {
+    public Book(String title, String author, Genre genre) {
         this.title = title;
         this.author = author;
+        this.genre = genre;
         this.onLoan = false;
         this.currentBorrower = null;
     }
@@ -49,6 +51,15 @@ public class Book {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    @Enumerated(value = EnumType.STRING)
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
     }
 
     @Column(name="onLoan")

@@ -1,10 +1,16 @@
 package models;
 
 public enum Genre {
-    HORROR("Horror"),
     FANTASY("Fantasy"),
     FICTION("Fiction"),
-    LEARNING("Learning");
+    HORROR("Horror"),
+    MEMOIRE("Memorie"),
+    NON_FICTION("Non-fiction"),
+    LEARNING("Learning"),
+    LITERARY_REALISM("Literary realism"),
+    PHILOSOPHICAL_FICTION("Philosophical fiction"),
+    SATIRE("Satire"),
+    SCIENCE_FICTION("Sci-Fi");
 
     private String genreType;
 
