@@ -17,6 +17,8 @@ public class BooksController {
     }
 
     private void setupEndpoints(){
+      
+      VelocityTemplateEngine velocityTemplateEngine = new VelocityTemplateEngine();
 
         VelocityTemplateEngine velocityTemplateEngine = new VelocityTemplateEngine();
 

@@ -10,11 +10,13 @@
             <th>First Name</th>
             <th>Last Name</th>
         </tr>
-        #foreach($borrower in $borrowers)
-        <tr>
-            <td>$borrower.getFirstName()</td>
-            <td>$borrower.getLastName()</td>
-        </tr>
+        #if($borrowers)
+            #foreach($borrower in $borrowers)
+            <tr>
+                <td>$borrower.getFirstName()</td>
+                <td>$borrower.getLastName()</td>
+            </tr>
+            #end
         #end
     </table>
 
