@@ -1,0 +1,10 @@
+<p>View Books Details Below</p>
+
+<p>Title: $book.getTitle()</p>
+<p>Author: $book.getAuthor()</p>
+
+
+<a href="/books/$book.getId()/edit">Edit</a>
+<form action = "/books/$book.getId()/delete" method = "post">
+    <input type="submit" value="Delete">
+</form>

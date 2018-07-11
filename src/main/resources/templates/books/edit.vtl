@@ -1,0 +1,11 @@
+<p>Edit Book details</p>
+
+<form action="/books/$book.getId()" method="post">
+
+    <label for="title">Title:</label>
+    <input class="input" type="text" name="title" required="true" value="$book.getTitle()" id="title">
+
+    <label for="author">Author:</label>
+    <input class="input" type="text" name="author" required="true" value="$book.getAuthor()" id="author">
+
+</form>

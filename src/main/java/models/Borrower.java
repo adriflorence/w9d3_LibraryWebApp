@@ -39,11 +39,6 @@ public class Borrower {
         this.firstName = firstName;
     }
 
-    @Column(name="lastName")
-    public String getLastName() {
-        return lastName;
-    }
-
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
