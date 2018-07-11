@@ -18,7 +18,11 @@
         <td>$book.getTitle()</td>
         <td>$book.getAuthor()</td>
         <td>$book.getOnLoan()</td>
-        <td>$book.getCurrentBorrower.getFirstName()</td>
+        #if($book.getOnLoan())
+        <td>$book.getCurrentBorrower().getFirstName()</td>
+        #else
+        <td>-</td>
+        #end
         <td><a href="books/$book.getId()">View</a></td>
     </tr>
     #end

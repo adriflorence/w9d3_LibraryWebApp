@@ -21,6 +21,7 @@ public class Seeds {
         Book book4 = new Book("Doppler", "Erlend Loe");
         Book book5 = new Book("The Raging Quiet", "Sherryl Jordan");
         Book book6 = new Book("Extremely Loud & Incredibly Close", "Jonathan Safran Foer");
+        Book book7 = new Book("This book is not on Loan", "Test Author");
         book1.setCurrentBorrower(borrower1);
         book2.setCurrentBorrower(borrower2);
         book3.setCurrentBorrower(borrower3);
@@ -33,6 +34,7 @@ public class Seeds {
         DBHelper.save(book4);
         DBHelper.save(book5);
         DBHelper.save(book6);
+        DBHelper.save(book7);
 
     }
 }
