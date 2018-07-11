@@ -8,11 +8,13 @@ import java.util.Set;
 public class Borrower {
 
     private int id;
-    private String name;
+    private String first_name;
+    private String last_name;
     private Set<Book> itemsBorrowed;
 
-    public Borrower(String name) {
-        this.name = name;
+    public Borrower(String first_name, String last_name) {
+        this.first_name = first_name;
+        this.last_name = last_name;
     }
 
     @Id
@@ -25,13 +27,22 @@ public class Borrower {
         this.id = id;
     }
 
-    @Column(name="name")
-    public String getName() {
-        return name;
+    @Column(name="first_name")
+    public String getFirst_name() {
+        return first_name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
+    }
+
+    @Column(name="first_name")
+    public String getLast_name() {
+        return last_name;
+    }
+
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
     }
 
     @OneToMany(mappedBy="borrower", fetch = FetchType.LAZY)
