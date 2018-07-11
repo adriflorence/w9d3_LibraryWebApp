@@ -84,5 +84,13 @@ public class BooksController {
             res.redirect("/books");
             return null;
         }, velocityTemplateEngine);
+
+        post ("/books/:id/delete", (req, res) -> {
+            int id = Integer.parseInt(req.params(":id"));
+            Book bookToDelete = DBHelper.find(id, Book.class);
+            DBHelper.delete(bookToDelete);
+            res.redirect("/books");
+            return null;
+        }, new VelocityTemplateEngine());
     }
 }
