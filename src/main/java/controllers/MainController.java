@@ -18,11 +18,12 @@ public class MainController {
         staticFileLocation("/public");
 
         BooksController booksController = new BooksController();
+        BorrowersController borrowersController = new BorrowersController();
 
         get("/", (req, res) -> {
             HashMap<String, Object> model = new HashMap<>();
 
-            model.put("template", "templates/main.vtl");
+            model.put("template", "templates/index.vtl");
 
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
