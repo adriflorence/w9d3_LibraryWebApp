@@ -15,11 +15,11 @@ public class Book {
     public Book() {
     }
 
-    public Book(String title, String author, Boolean onLoan, Borrower currentBorrower) {
+    public Book(String title, String author) {
         this.title = title;
         this.author = author;
-        this.onLoan = onLoan;
-        this.currentBorrower = currentBorrower;
+        this.onLoan = false;
+        this.currentBorrower = null;
     }
 
     @Id
@@ -60,6 +60,12 @@ public class Book {
         this.onLoan = onLoan;
     }
 
+    public void updateOnLoan(){
+        if(currentBorrower != null) {
+            onLoan = true;
+        }
+    }
+
     @ManyToOne
     @JoinColumn(name = "borrower_id", nullable = false)
     public Borrower getCurrentBorrower() {
@@ -69,6 +75,5 @@ public class Book {
     public void setCurrentBorrower(Borrower currentBorrower) {
         this.currentBorrower = currentBorrower;
     }
-    
 
 }
