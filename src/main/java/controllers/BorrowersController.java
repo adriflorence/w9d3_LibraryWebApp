@@ -1,14 +1,17 @@
 package controllers;
 
 import db.DBHelper;
+import models.Book;
 import models.Borrower;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 import static spark.Spark.get;
+import static spark.Spark.post;
 
 public class BorrowersController {
 
@@ -35,6 +38,48 @@ public class BorrowersController {
             model.put("template", "templates/borrowers/create.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
+
+        // CREATE & SAVE NEW BORROWER
+        post("/borrowers",  (req, res) -> {
+            String firstName = req.queryParams("firstName");
+            String lastName = req.queryParams("lastName");
+
+            Borrower newBorrower = new Borrower(firstName, lastName);
+            DBHelper.save(newBorrower);
+            res.redirect("/borrowers");
+            return null;
+        }, velocityTemplateEngine);
+
+        // FETCH BORROWER
+        get("/borrowers/:id", (req, res) -> {  // fetch manager to update
+            int borrower_id = Integer.parseInt(req.params(":id"));
+            Borrower borrower = DBHelper.find(borrower_id, Borrower.class);
+
+            List<Book> books = DBHelper.getAll(Book.class);
+            HashMap<String, Object> model = new HashMap<>();
+            model.put("books", books);
+            model.put("borrower", borrower);
+            model.put("template", "templates/borrowers/details.vtl");
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, velocityTemplateEngine);
+
+        // UPDATE BORROWER
+        post("/borrowers/:id", (req, res) -> { // update manager
+            int borrower_id = Integer.parseInt(req.params(":id"));
+            Borrower borrower = DBHelper.find(borrower_id, Borrower.class);
+            String newFirstName = req.queryParams("firstName");
+            String newLastName = req.queryParams("lastName");
+
+            List<Book> books = DBHelper.getAll(Book.class);
+
+            borrower.setFirstName(newFirstName);
+            borrower.setLastName(newLastName);
+
+            DBHelper.update(borrower);
+            res.redirect("/borrowers");
+            return null;
+        });
+
 
     }
 
